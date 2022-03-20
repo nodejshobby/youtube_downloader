@@ -1,0 +1,11 @@
+POST http://localhost:3000/youtube
+Content-Type: application/json
+
+
+
+{
+    "url": "https://www.youtube.com/watch=WQAxt7",
+}
+
+
+

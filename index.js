@@ -9,21 +9,20 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname)));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.post("/youtube", (req, res) => {
-  const { url } = req.body;
-  console.log(url);
-  ytdl(url).pipe(fs.createWriteStream("video.mp4"));
-  res.json({
-    status: "Ok",
-  });
+app.get("/youtube", (req, res) => {
+  const { url } = req.query;
+
+  res.header("Content-Disposition", 'attachment; filename="video.mp4');
+
+  ytdl(url, {
+    format: "mp4",
+  }).pipe(res);
 });
 
 app.listen(PORT, () => {

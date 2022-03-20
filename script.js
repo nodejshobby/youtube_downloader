@@ -1,6 +1,6 @@
 var urlInput = document.querySelector("#url");
 var saveBtn = document.querySelector("#saveBtn");
-var apiUrl = "http://localhost:3000/youtube";
+var apiPath = "/youtube";
 
 saveBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -9,5 +9,5 @@ saveBtn.addEventListener("click", function (event) {
 });
 
 function sendUrl(videoLink) {
-  window.location.href = `${apiUrl}?url=${videoLink}`;
+  window.location.href = `${apiPath}?url=${videoLink}`;
 }

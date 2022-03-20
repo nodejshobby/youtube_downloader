@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.get("/youtube", (req, res) => {
   const { url } = req.query;
 
-  res.header("Content-Disposition", 'attachment; filename="video.mp4');
+  res.header("Content-Disposition", 'attachment; filename="youtube_video.mp4');
 
   ytdl(url, {
     format: "mp4",
